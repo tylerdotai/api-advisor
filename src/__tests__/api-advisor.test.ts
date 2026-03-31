@@ -212,8 +212,8 @@ describe('api-advisor', () => {
 })
 
 describe('api-database', () => {
-  it('contains at least 30 APIs', () => {
-    expect(apiDatabase.length).toBeGreaterThanOrEqual(30)
+  it('contains at least 40 APIs', () => {
+    expect(apiDatabase.length).toBeGreaterThanOrEqual(40)
   })
 
   it('all APIs have required fields', () => {
@@ -236,7 +236,8 @@ describe('api-database', () => {
     const validCategories = [
       'weather', 'finance', 'crypto', 'geocoding', 'email', 'qr-codes',
       'company', 'news', 'maps', 'text', 'random', 'images', 'currency',
-      'sports', 'government', 'animals', 'food', 'jobs', 'movies', 'music'
+      'sports', 'government', 'animals', 'food', 'jobs', 'movies', 'music',
+      'gaming', 'science'
     ]
     for (const api of apiDatabase) {
       expect(validCategories.includes(api.category)).toBe(true)

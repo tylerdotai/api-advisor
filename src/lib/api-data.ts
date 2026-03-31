@@ -421,31 +421,6 @@ console.log(synonyms.slice(0, 10));`,
     keywords: ['words', 'synonym', 'antonym', 'rhyme', 'nlp', 'text analysis', 'dictionary']
   },
   {
-    id: 'unsplash',
-    name: 'Unsplash Source',
-    description: 'Random high-quality photos from Unsplash by keyword. Direct URL returns an image.',
-    category: 'images',
-    baseUrl: 'https://source.unsplash.com',
-    endpoints: [
-      {
-        method: 'GET',
-        path: '/400x300/?nature',
-        description: 'Random nature photo',
-        requiresAuth: false
-      }
-    ],
-    rateLimit: 'Limited (50 req/hour)',
-    requiresKey: false,
-    freeTier: 'Limited via source.unsplash.com',
-    cors: 'yes',
-    codeExample: `// Random photo by keyword
-const keyword = 'technology';
-const imageUrl = \`https://source.unsplash.com/600x400/?\${keyword}\`;
-// Use as <img src={imageUrl} />
-// Note: source.unsplash.com is deprecated, use official Unsplash API for production`,
-    keywords: ['images', 'photos', 'unsplash', 'stock', 'placeholder', 'random']
-  },
-  {
     id: 'lorem-picsum',
     name: 'Lorem Picsum',
     description: 'Placeholder images with specific dimensions. Random or fixed, grayscale option.',
@@ -630,29 +605,6 @@ console.log(data.slip.advice);`,
     keywords: ['advice', 'wisdom', 'random', 'motivation', 'quote']
   },
   {
-    id: 'fakestoreapi',
-    name: 'Fake Store API',
-    description: 'Fake e-commerce data for testing. Products, carts, and user data.',
-    category: 'random',
-    baseUrl: 'https://fakestoreapi.com',
-    endpoints: [
-      {
-        method: 'GET',
-        path: '/products',
-        description: 'All products',
-        requiresAuth: false
-      }
-    ],
-    rateLimit: 'Unlimited',
-    requiresKey: false,
-    freeTier: 'Unlimited',
-    cors: 'yes',
-    codeExample: `const response = await fetch('https://fakestoreapi.com/products');
-const products = await response.json();
-products.forEach(p => console.log(p.title, p.price));`,
-    keywords: ['fake', 'store', 'ecommerce', 'products', 'shopping', 'mock', 'test']
-  },
-  {
     id: 'api-football',
     name: 'API-Football',
     description: 'Football/soccer data. Leagues, teams, fixtures, live scores, and statistics.',
@@ -709,35 +661,6 @@ console.log(data.response);`,
 const data = await response.json();
 console.log(data[0].capital, data[0].population);`,
     keywords: ['countries', 'country data', 'capital', 'population', 'flags', 'government']
-  },
-  {
-    id: 'wordsapi',
-    name: 'WordsAPI',
-    description: 'Comprehensive word data. Definitions, pronunciation, syllables, rhymes, relationships.',
-    category: 'text',
-    baseUrl: 'https://api.wordsapi.com',
-    endpoints: [
-      {
-        method: 'GET',
-        path: '/words/{word}?key={YOUR_KEY}',
-        description: 'Get word data',
-        requiresAuth: true,
-        authType: 'api-key'
-      }
-    ],
-    rateLimit: '2500 requests/day (free)',
-    requiresKey: true,
-    keySignupUrl: 'https://www.wordsapi.com/',
-    freeTier: '2500 requests/day',
-    cors: 'unknown',
-    codeExample: `const word = 'interesting';
-const response = await fetch(
-  \`https://api.wordsapi.com/words/\${word}?key=YOUR_API_KEY\`
-);
-const data = await response.json();
-console.log(data.definition);
-console.log(data.syllables);`,
-    keywords: ['words', 'dictionary', 'definition', 'thesaurus', 'nlp', 'text analysis']
   },
   {
     id: 'themoviedb',
@@ -829,6 +752,315 @@ console.log(data.tracks.items);`,
 const jobs = await response.json();
 console.log(jobs.jobs);`,
     keywords: ['jobs', 'employment', 'hiring', 'career', 'work', 'job board']
+  },
+  {
+    id: 'cat-fact',
+    name: 'Cat Fact API',
+    description: 'Random cat facts. No API key, no rate limit for reasonable use.',
+    category: 'animals',
+    baseUrl: 'https://catfact.ninja',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/fact',
+        description: 'Get a random cat fact',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: '100 requests/hour',
+    requiresKey: false,
+    freeTier: 'Full access',
+    cors: 'yes',
+    codeExample: `const response = await fetch('https://catfact.ninja/fact');
+const data = await response.json();
+console.log(data.fact);`,
+    keywords: ['cat', 'cats', 'animal', 'fact', 'pet', 'random']
+  },
+  {
+    id: 'free-dictionary',
+    name: 'Free Dictionary API',
+    description: 'Comprehensive word definitions, phonetics, pronunciations, examples, and synonyms. No API key required.',
+    category: 'text',
+    baseUrl: 'https://api.dictionaryapi.dev/api/v2',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/entries/en/{word}',
+        description: 'Get word definitions and data',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Full access',
+    cors: 'yes',
+    codeExample: `const response = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/hello');
+const data = await response.json();
+console.log(data[0].meanings[0].definitions[0].definition);`,
+    keywords: ['dictionary', 'definition', 'word', 'thesaurus', 'phonetic', 'nlp', 'text']
+  },
+  {
+    id: 'genderize',
+    name: 'Genderize.io',
+    description: 'Predict gender from a first name. Returns gender and probability score.',
+    category: 'text',
+    baseUrl: 'https://api.genderize.io',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/?name={name}',
+        description: 'Predict gender from name',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: '100,000 requests/month',
+    requiresKey: false,
+    freeTier: 'Full access',
+    cors: 'yes',
+    codeExample: `const response = await fetch('https://api.genderize.io/?name=michael');
+const data = await response.json();
+console.log(data.gender, data.probability);`,
+    keywords: ['gender', 'name', 'prediction', 'identity', 'nlp']
+  },
+  {
+    id: 'digimon-api',
+    name: 'Digimon API',
+    description: 'Complete Digimon database. Get character names, images, levels, and attributes.',
+    category: 'gaming',
+    baseUrl: 'https://digi-api.com/api/v1',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/digimon?page=0&pageSize=1',
+        description: 'Get paginated digimon list',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Full access',
+    cors: 'yes',
+    codeExample: `const response = await fetch('https://digi-api.com/api/v1/digimon?page=0&pageSize=1');
+const data = await response.json();
+console.log(data.content[0].name, data.content[0].images[0].href);`,
+    keywords: ['digimon', 'anime', 'gaming', 'character', 'game']
+  },
+  {
+    id: 'company-search-api',
+    name: 'Company Search API',
+    description: 'French business registry (SIREN). Search companies by name, get addresses, SIREN numbers, and business data.',
+    category: 'company',
+    baseUrl: 'https://recherche-entreprises.api.gouv.fr',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/search?q={query}&limit=1',
+        description: 'Search French companies',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Full access to French business registry',
+    cors: 'yes',
+    codeExample: `const response = await fetch(
+  'https://recherche-entreprises.api.gouv.fr/search?q=amazon&limit=1'
+);
+const data = await response.json();
+console.log(data.results[0].nom_raison_sociale);`,
+    keywords: ['company', 'business', 'siren', 'france', 'registry', 'search']
+  },
+  {
+    id: 'theaudiodb',
+    name: 'TheAudioDB',
+    description: 'Music metadata: artists, albums, tracks, lyrics. Free tier with community data.',
+    category: 'music',
+    baseUrl: 'https://www.theaudiodb.com/api/v1/json/2',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/search.php?s={artist}',
+        description: 'Search by artist name',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited (community API)',
+    requiresKey: false,
+    freeTier: 'Free tier available',
+    cors: 'yes',
+    codeExample: `const response = await fetch(
+  'https://www.theaudiodb.com/api/v1/json/2/search.php?s=coldplay'
+);
+const data = await response.json();
+console.log(data.artists[0].strArtist);`,
+    keywords: ['music', 'artist', 'album', 'track', 'metadata', 'audio']
+  },
+  {
+    id: 'dragon-ball-api',
+    name: 'Dragon Ball API',
+    description: 'Dragon Ball characters, transformations, planets, and lore. Free to use.',
+    category: 'gaming',
+    baseUrl: 'https://dragonball-api.com/api',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/characters?page=0&limit=1',
+        description: 'Get paginated character list',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Full access',
+    cors: 'yes',
+    codeExample: `const response = await fetch(
+  'https://dragonball-api.com/api/characters?page=0&limit=1'
+);
+const data = await response.json();
+console.log(data.data[0].name);`,
+    keywords: ['dragon ball', 'anime', 'gaming', 'character', 'transformation']
+  },
+  {
+    id: 'anapioficeandfire',
+    name: 'An Api Of Ice And Fire',
+    description: 'Game of Thrones books, characters, houses, and regions. Complete ASOIAF data.',
+    category: 'gaming',
+    baseUrl: 'https://anapioficeandfire.com/api',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/books/1',
+        description: 'Get book by ID',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Full access',
+    cors: 'unknown',
+    codeExample: `const response = await fetch('https://anapioficeandfire.com/api/books/1');
+const data = await response.json();
+console.log(data.name, data.authors[0]);`,
+    keywords: ['game of thrones', 'got', 'asoiaf', 'fantasy', 'books', 'character']
+  },
+  {
+    id: 'air-quality-open-meteo',
+    name: 'Air Quality API (Open-Meteo)',
+    description: 'European Air Quality Index, pollutants (PM2.5, O3, NO2), and pollen data. 11km resolution.',
+    category: 'weather',
+    baseUrl: 'https://air-quality-api.open-meteo.com/v1',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/air-quality?lat={lat}&lon={lon}&current=european_aqi',
+        description: 'Current air quality for coordinates',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: '10,000 requests/day',
+    requiresKey: false,
+    freeTier: 'Full access to air quality and pollen data',
+    cors: 'unknown',
+    codeExample: `const response = await fetch(
+  'https://air-quality-api.open-meteo.com/v1/air-quality?lat=52.52&lon=13.41&current=european_aqi'
+);
+const data = await response.json();
+console.log(data.current.european_aqi);`,
+    keywords: ['air quality', 'aqi', 'pollution', 'pm25', 'ozone', 'weather', 'pollen']
+  },
+  {
+    id: 'abhi-api-dare',
+    name: 'Abhi Dare API',
+    description: 'Truth or dare game prompts. Returns random dare challenges for games.',
+    category: 'random',
+    baseUrl: 'https://abhi-api.vercel.app/api/game',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/dare',
+        description: 'Get a random dare prompt',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Free',
+    cors: 'yes',
+    codeExample: `const response = await fetch('https://abhi-api.vercel.app/api/game/dare');
+const data = await response.json();
+console.log(data.dare);`,
+    keywords: ['truth', 'dare', 'game', 'party', 'prompt', 'random']
+  },
+  {
+    id: 'elon-musk-api',
+    name: 'Elon Musk API',
+    description: 'Random Elon Musk news articles and tweets. Aggregated from various sources.',
+    category: 'news',
+    baseUrl: 'https://elonmu.sh/api',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/random',
+        description: 'Get random Elon Musk news item',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Free',
+    cors: 'unknown',
+    codeExample: `const response = await fetch('https://elonmu.sh/api/random');
+const data = await response.json();
+console.log(data.content);`,
+    keywords: ['elon', 'musk', 'news', 'twitter', 'tesla', 'spacex']
+  },
+  {
+    id: 'celestrak',
+    name: 'CelesTrak GP Data',
+    description: 'Real-time satellite orbital data (TLE). Track ISS, Starlink, and other satellites.',
+    category: 'science',
+    baseUrl: 'https://celestrak.org/NORAD/elements',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/gp.php?GROUP=stations&FORMAT=json',
+        description: 'Get ISS and stations orbital data',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Full access to orbital elements',
+    cors: 'unknown',
+    codeExample: `const response = await fetch(
+  'https://celestrak.org/NORAD/elements/gp.php?GROUP=stations&FORMAT=json'
+);
+const data = await response.json();
+console.log(data[0].OBJECT_NAME);`,
+    keywords: ['satellite', 'tle', 'orbital', 'nasa', 'space', 'tracking', 'iss']
+  },
+  {
+    id: 'footer-year',
+    name: 'Footer Year API',
+    description: 'Returns the current year as JSON. Useful for dynamic copyright year in footers.',
+    category: 'random',
+    baseUrl: 'https://getfullyear.com',
+    endpoints: [
+      {
+        method: 'GET',
+        path: '/api/year',
+        description: 'Get current year',
+        requiresAuth: false
+      }
+    ],
+    rateLimit: 'Unlimited',
+    requiresKey: false,
+    freeTier: 'Free',
+    cors: 'unknown',
+    codeExample: `const response = await fetch('https://getfullyear.com/api/year');
+const data = await response.json();
+console.log(data.year);`,
+    keywords: ['year', 'footer', 'date', 'copyright', 'utility']
   }
 ]
 

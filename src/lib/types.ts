@@ -44,6 +44,8 @@ export type ApiCategory =
   | 'jobs'
   | 'movies'
   | 'music'
+  | 'gaming'
+  | 'science'
 
 export interface AdvisorInput {
   projectDescription: string
