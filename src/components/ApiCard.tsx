@@ -6,9 +6,10 @@ import styles from './ApiCard.module.css'
 
 interface ApiCardProps {
   api: ApiRecommendation
+  status?: string
 }
 
-export default function ApiCard({ api }: ApiCardProps) {
+export default function ApiCard({ api, status }: ApiCardProps) {
   const [isTesting, setIsTesting] = useState(false)
   const [testResult, setTestResult] = useState<string | null>(null)
   const [testError, setTestError] = useState<string | null>(null)
@@ -34,7 +35,7 @@ export default function ApiCard({ api }: ApiCardProps) {
       let url = `${api.baseUrl}${endpoint.path}`
 
       if (endpoint.requiresAuth) {
-        url = url.replace('{KEY}', 'DEMO_KEY').replace('{TOKEN}', 'DEMO_TOKEN').replace('{API_KEY}', 'DEMO_KEY').replace('{API_KEY}', 'DEMO_KEY')
+        url = url.replace('{KEY}', 'DEMO_KEY').replace('{TOKEN}', 'DEMO_TOKEN').replace('{API_KEY}', 'DEMO_KEY')
         if (url.includes('{')) {
           const response = await fetch(url)
           const text = await response.text()
@@ -52,6 +53,7 @@ export default function ApiCard({ api }: ApiCardProps) {
         return
       }
 
+      // Replace common placeholder values
       url = url.replace('{lat}', '32.76').replace('{lon}', '-97.34')
       url = url.replace('{lat}', '32.76').replace('{lon}', '-97.34')
       url = url.replace('{address}', '1600+Pennsylvania+Ave')
@@ -69,11 +71,10 @@ export default function ApiCard({ api }: ApiCardProps) {
       url = url.replace('{artist}', 'queen')
       url = url.replace('{topic}', 'technology')
       url = url.replace('{keyword}', 'nature')
+      url = url.replace('{name}', 'michael')
 
       const response = await fetch(url, {
-        headers: endpoint.requiresAuth && !url.includes('DEMO')
-          ? {}
-          : { 'User-Agent': 'API-Advisor/1.0' }
+        headers: { 'User-Agent': 'API-Advisor/1.0' }
       })
 
       const text = await response.text()
@@ -85,12 +86,24 @@ export default function ApiCard({ api }: ApiCardProps) {
     setIsTesting(false)
   }, [api])
 
+  const isGreen = status === 'GREEN'
+
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} ${isGreen ? styles.cardGreen : ''}`}>
       <div className={styles.header}>
         <div className={styles.titleRow}>
           <h3 className={styles.name}>{api.name}</h3>
-          <span className={styles.category}>{api.category.replace('-', ' ')}</span>
+          <div className={styles.badges}>
+            {isGreen && (
+              <span className={styles.statusGreen}>
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                  <circle cx="4" cy="4" r="4" fill="currentColor"/>
+                </svg>
+                GREEN
+              </span>
+            )}
+            <span className={styles.category}>{api.category.replace('-', '\u2011')}</span>
+          </div>
         </div>
         <p className={styles.description}>{api.description}</p>
       </div>
@@ -102,17 +115,13 @@ export default function ApiCard({ api }: ApiCardProps) {
         </div>
         <div className={styles.metaItem}>
           <span className={styles.metaLabel}>Auth</span>
-          <span className={styles.metaValue}>
-            {api.requiresKey ? (
-              <span className={styles.requiresKey}>API key required</span>
-            ) : (
-              <span className={styles.noKey}>No key needed</span>
-            )}
+          <span className={`${styles.metaValue} ${api.requiresKey ? styles.requiresKey : styles.noKey}`}>
+            {api.requiresKey ? 'Key required' : 'No key'}
           </span>
         </div>
         <div className={styles.metaItem}>
           <span className={styles.metaLabel}>CORS</span>
-          <span className={styles.metaValue}>{api.cors}</span>
+          <span className={styles.metaValue}>{api.cors === 'yes' ? 'Yes' : api.cors === 'no' ? 'No' : 'Unknown'}</span>
         </div>
       </div>
 
@@ -142,9 +151,7 @@ export default function ApiCard({ api }: ApiCardProps) {
             )}
           </button>
         </div>
-        <pre className={styles.code}>
-          <code>{api.codeExample}</code>
-        </pre>
+        <pre className={styles.code}><code>{api.codeExample}</code></pre>
       </div>
 
       <div className={styles.actions}>
@@ -155,7 +162,7 @@ export default function ApiCard({ api }: ApiCardProps) {
         >
           {isTesting ? (
             <>
-              <span className={styles.spinner}></span>
+              <span className={styles.spinner}/>
               Testing...
             </>
           ) : (
@@ -163,7 +170,7 @@ export default function ApiCard({ api }: ApiCardProps) {
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M2 7l3.5 3.5L12 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Test API
+              Test
             </>
           )}
         </button>
@@ -181,16 +188,25 @@ export default function ApiCard({ api }: ApiCardProps) {
             </svg>
           </a>
         )}
+
+        <a
+          href={api.baseUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.docsLink}
+        >
+          Docs
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M3 9l6-6M9 3H5m4 0v4" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </a>
       </div>
 
       {testResult && (
         <div className={styles.result}>
           <div className={styles.resultHeader}>
             <span className={styles.resultLabel}>Response</span>
-            <button
-              onClick={() => setTestResult(null)}
-              className={styles.closeResult}
-            >
+            <button onClick={() => setTestResult(null)} className={styles.closeResult}>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <path d="M9 3L3 9M3 3l6 6" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round"/>
               </svg>

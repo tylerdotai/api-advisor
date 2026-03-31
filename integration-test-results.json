@@ -1,346 +1,249 @@
 {
-  "timestamp": "2026-03-31T07:11:27.415Z",
+  "timestamp": "2026-03-31T07:23:30.317Z",
   "total": 30,
-  "green": 18,
-  "red": 12,
+  "green": 0,
+  "red": 30,
   "timeout": 0,
   "authRequired": 0,
   "results": [
     {
       "id": "open-meteo",
       "name": "Open-Meteo",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 762,
-      "hasValidData": true,
-      "dataFields": [
-        "latitude",
-        "longitude",
-        "generationtime_ms",
-        "utc_offset_seconds",
-        "timezone",
-        "timezone_abbreviation",
-        "elevation",
-        "current_weather_units",
-        "current_weather"
-      ]
+      "status": "RED",
+      "responseTime": 2,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "nws",
       "name": "National Weather Service",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 109,
-      "hasValidData": true,
-      "dataFields": [
-        "@context",
-        "id",
-        "type",
-        "geometry",
-        "properties"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "nominatim",
       "name": "OpenStreetMap Nominatim",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 73,
-      "hasValidData": true,
-      "dataFields": [
-        "0"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "zippopotam",
       "name": "Zippopotam.us",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 76,
-      "hasValidData": true,
-      "dataFields": [
-        "country",
-        "country abbreviation",
-        "post code",
-        "places"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "coingecko",
       "name": "CoinGecko",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 85,
-      "hasValidData": true,
-      "dataFields": [
-        "bitcoin"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "alpha-vantage",
       "name": "Alpha Vantage",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 141,
-      "hasValidData": true,
-      "dataFields": [
-        "Global Quote"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "frankfurter",
       "name": "Frankfurter",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 83,
-      "hasValidData": true,
-      "dataFields": [
-        "amount",
-        "base",
-        "date",
-        "rates"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "hunter",
       "name": "Hunter",
       "status": "RED",
-      "statusCode": 401,
-      "responseTime": 686,
-      "error": "HTTP 401: Unauthorized",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "qrserver",
       "name": "QRServer",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 631,
-      "hasValidData": true,
-      "dataFields": [
-        "image binary data"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "quickchart",
       "name": "QuickChart",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 149,
-      "hasValidData": true,
-      "dataFields": [
-        "image binary data"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "randomuser",
       "name": "RandomUser",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 135,
-      "hasValidData": true,
-      "dataFields": [
-        "results",
-        "info"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "official-joke",
       "name": "Official Joke API",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 129,
-      "hasValidData": true,
-      "dataFields": [
-        "type",
-        "setup",
-        "punchline",
-        "id"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "advice-slip",
       "name": "Advice Slip",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 440,
-      "hasValidData": true,
-      "dataFields": [
-        "slip"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "fakestoreapi",
       "name": "Fake Store API",
       "status": "RED",
-      "statusCode": 523,
-      "responseTime": 2872,
-      "error": "HTTP 523: <none>",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "gnews",
       "name": "GNews",
       "status": "RED",
-      "statusCode": 400,
-      "responseTime": 206,
-      "error": "HTTP 400: Bad Request",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "datamuse",
       "name": "Datamuse",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 77,
-      "hasValidData": true,
-      "dataFields": [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "wordsapi",
       "name": "WordsAPI",
       "status": "RED",
-      "responseTime": 6,
-      "error": "fetch failed",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "lorem-picsum",
       "name": "Lorem Picsum",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 292,
-      "hasValidData": true,
-      "dataFields": [
-        "image binary data"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "unsplash",
       "name": "Unsplash Source",
       "status": "RED",
-      "statusCode": 503,
-      "responseTime": 175,
-      "error": "HTTP 503: Service Unavailable",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "nasa-apod",
       "name": "NASA APOD",
       "status": "RED",
-      "statusCode": 429,
-      "responseTime": 412,
-      "error": "HTTP 429: Too Many Requests",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "college-scorecard",
       "name": "College Scorecard",
       "status": "RED",
-      "statusCode": 429,
-      "responseTime": 361,
-      "error": "HTTP 429: Too Many Requests",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "restcountries",
       "name": "REST Countries",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 200,
-      "hasValidData": true,
-      "dataFields": [
-        "0",
-        "1",
-        "2"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "dog-ceo",
       "name": "Dog CEO",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 292,
-      "hasValidData": true,
-      "dataFields": [
-        "message",
-        "status"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "cat-as-a-service",
       "name": "Cat as a Service",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 442,
-      "hasValidData": true,
-      "dataFields": [
-        "image binary data"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "open-food-facts",
       "name": "Open Food Facts",
-      "status": "GREEN",
-      "statusCode": 200,
-      "responseTime": 569,
-      "hasValidData": true,
-      "dataFields": [
-        "code",
-        "product",
-        "status",
-        "status_verbose"
-      ]
+      "status": "RED",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
+      "hasValidData": false
     },
     {
       "id": "api-football",
       "name": "API-Football",
       "status": "RED",
-      "statusCode": 403,
-      "responseTime": 71,
-      "error": "HTTP 403: Forbidden",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "themoviedb",
       "name": "The Movie Database",
       "status": "RED",
-      "statusCode": 401,
-      "responseTime": 116,
-      "error": "HTTP 401: Unauthorized",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "spotify",
       "name": "Spotify Web API",
       "status": "RED",
-      "statusCode": 401,
-      "responseTime": 93,
-      "error": "HTTP 401: Unauthorized",
+      "responseTime": 1,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "jobs-api",
       "name": "Jooble",
       "status": "RED",
-      "statusCode": 403,
-      "responseTime": 83,
-      "error": "HTTP 403: Forbidden",
+      "responseTime": 0,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     },
     {
       "id": "exchangerate-api",
       "name": "ExchangeRate-API",
       "status": "RED",
-      "statusCode": 404,
-      "responseTime": 425,
-      "error": "HTTP 404: Not Found",
+      "responseTime": 1,
+      "error": "RequestInit: Expected signal (\"AbortSignal {}\") to be an instance of AbortSignal.",
       "hasValidData": false
     }
   ]
